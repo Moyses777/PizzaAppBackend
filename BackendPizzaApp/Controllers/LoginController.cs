@@ -15,7 +15,7 @@ namespace BackendPizzaApp.Controllers
     {
         // GET: api/<UserController>
         [HttpGet]
-        public Users Get()
+        public ActionResult<Users> Get()
         {
             return Users.New.SetName("Moises").SetLastname("Camacho").SetTelephone("3325124512").BuildToLog();
         }

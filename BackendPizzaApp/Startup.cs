@@ -26,6 +26,17 @@ namespace BackendPizzaApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            // This code set the API permitions for all applications can access to the api or give the permitions to some applications to
+            // protect data from databases, here you can set who can access, what headers can use and what methods can use too.
+            // also you need to give a name to the core policy and after set it below in configurations or configure.
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "_myAllowSpecificOrigins",
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:8080").AllowAnyHeader().AllowAnyMethod();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +50,9 @@ namespace BackendPizzaApp
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            // Here we configured or set it to use it in the API. Should have the same name!
+            app.UseCors("_myAllowSpecificOrigins");
 
             app.UseAuthorization();
 
