@@ -24,14 +24,16 @@ namespace BackendPizzaApp.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            return "value" + id;
         }
 
         // POST api/<UserController>
         [HttpPost]
         public void Post([FromBody] Users user)
         {
-            
+            Users.New.SetName(user.Name)
+                .SetPassword(user.Password)
+                .BuildToLog().Login();
         }
 
         // PUT api/<UserController>/5
