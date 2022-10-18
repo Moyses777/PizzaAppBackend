@@ -1,7 +1,9 @@
 ﻿using BackendPizzaApp.Models.Builders;
+using BackendPizzaApp.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BackendPizzaApp.Models
@@ -62,7 +64,8 @@ namespace BackendPizzaApp.Models
         /// </summary>
         public void Register()
         {
-
+            Common.instance.setUser(this);
+            Thread.Sleep(5000);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BackendPizzaApp.Models;
+using BackendPizzaApp.Resources;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -29,9 +30,22 @@ namespace BackendPizzaApp.Controllers
 
         // POST api/<RegisterController>
         [HttpPost]
-        public bool Post([FromBody] Users user)
+        public void Post([FromBody] Users user)
         {
-            return user.Name == "luis@gmail.com" && user.Password == "123456";
+            try
+            {
+                Users.New.SetName(user.Name)
+                    .SetLastname(user.Lastname)
+                    .SetPassword(user.Password)
+                    .SetTelephone(user.Telephone)
+                    .SetRangePermitions(user.RangePermitions)
+                    .BuildToLog().Register();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         // PUT api/<RegisterController>/5
