@@ -20,6 +20,12 @@ namespace BackendPizzaApp.Controllers
             return Users.New.SetName("Moises").SetLastname("Camacho").SetTelephone("3325124512").BuildToLog();
         }
 
+        [HttpGet("/logout")]
+        public string Logout()
+        {
+            return "logout";
+        }
+
         // GET api/<UserController>/5
         [HttpGet("{id}")]
         public string Get(int id)
