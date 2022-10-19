@@ -6,19 +6,23 @@ using System.Threading.Tasks;
 
 namespace BackendPizzaApp.Models.Builders
 {
+    #region Class CostumerBuilder
     /// <summary>
     /// This class creates and do actions of CostumersUser or Users with Costumer Role.
     /// </summary>
     /// <typeparam name="SELF"></typeparam>
     public class CostumerBuilder<SELF> : IBuilderUser<SELF> where SELF: CostumerBuilder<SELF>
     {
+        #region Variebles from the class
         private Users _user;
         private string _job;
         private int _earning;
 
         public string Job { get { return _job; } }
         public int Earning { get { return _earning; } }
+        #endregion
 
+        #region Constructor
         /// <summary>
         /// Building the CostumerBuilder constructor and Users constructor
         /// </summary>
@@ -26,7 +30,9 @@ namespace BackendPizzaApp.Models.Builders
         {
             _user = new Users();
         }
+        #endregion
 
+        #region Methods to set object (User)
         /// <summary>
         /// This method set Users Id and return a recursive class to set more props
         /// </summary>
@@ -114,7 +120,9 @@ namespace BackendPizzaApp.Models.Builders
             this._earning = Earning;
             return (SELF) this;
         }
+        #endregion
 
+        #region Method to build object
         /// <summary>
         /// This method return an User instance so you can Login, Logout or Register User
         /// </summary>
@@ -132,5 +140,7 @@ namespace BackendPizzaApp.Models.Builders
         {
             return this;
         }
+        #endregion
     }
+    #endregion
 }

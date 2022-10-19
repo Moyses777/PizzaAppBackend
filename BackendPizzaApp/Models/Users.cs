@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace BackendPizzaApp.Models
 {
+    #region Class User
     /// <summary>
     /// This class is the Generic Users Class so you can login,
-    /// logout or register and it has the generic props
+    /// logout or register and it has the generic properties
     /// </summary>
     public class Users
     {
+        #region Variables from class
         private int _id;
         private string _name;
         private string _lastname;
@@ -27,7 +29,9 @@ namespace BackendPizzaApp.Models
         public string Password { get { return _password; } set { if (_password != value) _password = value; } }
         public string Telephone { get { return _telephone; } set { if (_telephone != value) _telephone = value; } }
         public int RangePermitions { get { return _rangePermitions; } set { if (_rangePermitions != value) _rangePermitions = value; } }
+        #endregion
 
+        #region Constructor and Building constructor
         /// <summary>
         /// Creation of class so you can call the recursive constructor
         /// </summary>
@@ -40,15 +44,19 @@ namespace BackendPizzaApp.Models
         /// Building the constructor recursive from BuilderUser
         /// </summary>
         public static BuilderUser New => new BuilderUser();
+        #endregion
 
+        #region Methods from the user
         /// <summary>
         /// This method validate that the user exists in database and return what 
         /// it has found
         /// </summary>
-        /// <returns>User</returns>
-        public Users Login()
+        /// <returns>Bool</returns>
+        public bool Login()
         {
-            return this;
+            string username = "Moises";
+            string password = "123456";
+            return this.Name == username && this.Password == password;
         }
 
         /// <summary>
@@ -67,5 +75,7 @@ namespace BackendPizzaApp.Models
             Common.instance.setUser(this);
             Thread.Sleep(5000);
         }
+        #endregion
     }
+    #endregion
 }

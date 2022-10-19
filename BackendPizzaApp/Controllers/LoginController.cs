@@ -29,11 +29,12 @@ namespace BackendPizzaApp.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public void Post([FromBody] Users user)
+        public bool Post([FromBody] Users user)
         {
-            Users.New.SetName(user.Name)
+            bool isLogged = Users.New.SetName(user.Name)
                 .SetPassword(user.Password)
                 .BuildToLog().Login();
+            return isLogged;
         }
 
         // PUT api/<UserController>/5

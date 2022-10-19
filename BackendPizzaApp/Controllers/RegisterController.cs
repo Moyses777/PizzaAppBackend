@@ -29,8 +29,13 @@ namespace BackendPizzaApp.Controllers
         }
 
         // POST api/<RegisterController>
+        /// <summary>
+        /// This method register a new user in database.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>Bool</returns>
         [HttpPost]
-        public void Post([FromBody] Users user)
+        public bool Post([FromBody] Users user)
         {
             try
             {
@@ -40,11 +45,12 @@ namespace BackendPizzaApp.Controllers
                     .SetTelephone(user.Telephone)
                     .SetRangePermitions(user.RangePermitions)
                     .BuildToLog().Register();
+
+                return false;
             }
             catch (Exception ex)
             {
-
-                throw;
+                return false;
             }
         }
 
