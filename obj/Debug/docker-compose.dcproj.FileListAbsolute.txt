@@ -1,0 +1,1 @@
+C:\Users\lmcamacho\Documents\Documentos\PizzaAppVueAndAsp\BackendPizzaApp\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eKx1ihMMHYSFmj7FbNQIGU+yYVK+W3aZngzzcYw7x9J9gHIp6iqse5ItaYoQc3dLrEu8DSdFoySdprilsi9hIg==",
+  "dgSpecHash": "mU4wuTSLKVk7QFjup/ZdOGVqZ95d5r9jFCMpwKIhIRq3h13WzC1+OGXwnf+P1mzr89Rjmj2eT7QOcI51ymHF+w==",
   "success": true,
   "projectFilePath": "C:\\Users\\lmcamacho\\Documents\\Documentos\\PizzaAppVueAndAsp\\BackendPizzaApp\\BackendPizzaApp\\BackendPizzaApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\lmcamacho\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
+  ],
   "logs": []
 }

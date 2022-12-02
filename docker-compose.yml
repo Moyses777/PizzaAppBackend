@@ -1,0 +1,25 @@
+version: '3.4'
+
+networks:
+  mired:
+    driver: bridge
+
+services:
+  backendpizzaapp:
+    image: ${DOCKER_REGISTRY-}backendpizzaapp
+    ports:
+      - 58691:443
+      - 58692:80
+    build:
+      context: .
+      dockerfile: BackendPizzaApp/Dockerfile
+    networks:
+      - mired
+  miapp:
+    image: miapp:1.0
+    ports:
+      - "8080:8080"
+    links:
+      - backendpizzaapp
+    networks:
+      - mired
